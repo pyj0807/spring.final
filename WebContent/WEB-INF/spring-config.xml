@@ -15,14 +15,8 @@
 		<property value="/WEB-INF/tiles/*.xml" name="definitions" />
 	</bean>
 
-
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-		id="viewResolver">
-		<property value="/WEB-INF/views/" name="prefix" />
-		<property value=".jsp" name="suffix" />
-	</bean>
-
+	<bean id="employeeDao" class="app.model.EmployeeDao"/>
+	
 	<bean id="gson" class="com.google.gson.Gson" />
 
 	<bean id="ds"
@@ -40,14 +34,14 @@
 
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean"
 		id="sqlSessionFactory">
-		<property name="dataSource" ref="ds" />
+		<property name="dataSource"  ref="ds" />
+		<property name="mapperLocations" value="/WEB-INF/mappers/admin.xml"></property>
 	</bean>
 
 
 
 	<bean class="org.mybatis.spring.SqlSessionTemplate"
 		id="sqlTemplate">
-		<constructor-arg name="sqlSessionFactory"
-			ref="sqlSessionFactory" />
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 </beans>

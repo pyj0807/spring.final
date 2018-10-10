@@ -11,23 +11,16 @@
 		<div class="row">
 			<div class="col-md-6">
 		<label>부서명</label>
-				<select class="form-control">
-					<option>인사부</option>
-					<option>관리부</option>
-					<option>재무부</option>
-					<option>개발부</option>
-					<option>영업부</option>
+				<select class="form-control" name="deparment" >
+					<c:forEach var="deparments" items="${de }">
+						<option value="${deparments.DID}">${deparments.DNAME }</option>
+					</c:forEach>
 				</select>
 			</div>
 			<div class="col-md-6">
 			<label>직책</label>
 				<select class="form-control">
-					<option>사원</option>
-					<option>대리</option>
-					<option>과장</option>
-					<option>차장</option>
-					<option>부장</option>
-					<option>이사</option>
+					
 				</select>
 			</div>
 		</div>
