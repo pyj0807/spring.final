@@ -8,5 +8,10 @@
 		<put-attribute name="left" value="/WEB-INF/views/admin/side.jsp" />
 		<put-attribute name="center" value="/WEB-INF/views/admin/addEmployee.jsp" />
 	</definition>
-
+	
+	<definition template="/WEB-INF/tiles/admin-template.jsp" name="admin.employee.addresult">
+		<put-attribute name="nav" value="/WEB-INF/views/admin/nav.jsp" />
+		<put-attribute name="left" value="/WEB-INF/views/admin/side.jsp" />
+		<put-attribute name="center" value="/WEB-INF/views/admin/addEmployee.jsp" />
+	</definition>
 </tiles-definitions>

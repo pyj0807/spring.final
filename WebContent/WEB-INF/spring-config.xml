@@ -8,15 +8,22 @@
 	<context:component-scan base-package="app" />
 
 	<bean
-		class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" id="tilesViewResolver" />
+		class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"
+		id="tilesViewResolver" />
 	<bean
-		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer" id="tilesConfigurer">
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer"
+		id="tilesConfigurer">
 		<property value="/WEB-INF/tiles/*.xml" name="definitions" />
 	</bean>
 
-	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property value="/WEB-INF/views/" name="prefix" />
+		<property value=".jsp" name="suffix" />
+	</bean>
 
-	<bean id="employeeDao" class="app.model.EmployeeDao"/>
+	<bean id="employeeDao" class="app.model.EmployeeDao" />
+	
+	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver"/>
 	
 	<bean id="gson" class="com.google.gson.Gson" />
 
@@ -35,14 +42,16 @@
 
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean"
 		id="sqlSessionFactory">
-		<property name="dataSource"  ref="ds" />
-		<property name="mapperLocations" value="/WEB-INF/mappers/admin.xml"></property>
+		<property name="dataSource" ref="ds" />
+		<property name="mapperLocations"
+			value="/WEB-INF/mappers/*.xml"></property>
 	</bean>
 
 
 
 	<bean class="org.mybatis.spring.SqlSessionTemplate"
 		id="sqlTemplate">
-		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+		<constructor-arg name="sqlSessionFactory"
+			ref="sqlSessionFactory" />
 	</bean>
 </beans>
