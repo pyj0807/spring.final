@@ -21,4 +21,14 @@ public class EmployeeDao {
 		return template.selectList("department.getPosition");
 	}
 	
+	public String getNewEmployeeId() {
+		return "em" + template.selectOne("department.getEmployeeSeq");
+	}
+	
+	public int addEmployee(Map map) {
+		return template.insert("department.addEmployee",map);
+		
+	}
+	
+	
 }

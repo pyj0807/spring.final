@@ -9,11 +9,12 @@
 
 	<bean
 		class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" id="tilesViewResolver" />
-
 	<bean
 		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer" id="tilesConfigurer">
 		<property value="/WEB-INF/tiles/*.xml" name="definitions" />
 	</bean>
+
+	
 
 	<bean id="employeeDao" class="app.model.EmployeeDao"/>
 	
