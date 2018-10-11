@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,25 +17,30 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 <title>그룹웨어</title>
-
 <body class="text-center">
-	<form class="form-signin">
-		<img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt=""
-			width="72" height="72">
-		<h1 class="h3 mb-3 font-weight-normal">그룹웨어</h1>
-		<label for="inputEmail" class="sr-only">아이디</label> <input
-			type="email" id="inputEmail" class="form-control"
-			placeholder="Email address" required autofocus> <label
-			for="inputPassword" class="sr-only">비번</label> <input
+	<form class="form-signin"
+		action="${pageContext.servletContext.contextPath }/admin/employee/login.do"
+		method="post">
+		<h1 class="h3 mb-3 font-weight-normal">GROUP WARE</h1>
+		<label for="inputEmail" class="sr-only">사원 아이디</label> <input
+			type="id" id="inputEmail" class="form-control"
+			placeholder="사원 아이디" required autofocus name="id"> <label
+			for="inputPassword" class="sr-only">사원 비밀번호</label> <input
 			type="password" id="inputPassword" class="form-control"
-			placeholder="Password" required>
+			placeholder="사원 비밀번호" required name="pass">
+		
+		<c:if test="${!empty err }">
+			<div class="alert alert-danger" role="alert">
+				정보를 잘못 입력하셨습니다.
+			</div>
+		</c:if>
+		
 		<div class="checkbox mb-3">
 			<label> <input type="checkbox" value="remember-me">
 				로그인 유지
 			</label>
 		</div>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
-		<p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">로그 인</button>
 	</form>
 </body>
 </html>

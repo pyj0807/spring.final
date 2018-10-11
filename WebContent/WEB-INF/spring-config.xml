@@ -47,7 +47,7 @@
 			value="/WEB-INF/mappers/*.xml"></property>
 	</bean>
 
-
+	
 
 	<bean class="org.mybatis.spring.SqlSessionTemplate"
 		id="sqlTemplate">
