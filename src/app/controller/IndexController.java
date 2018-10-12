@@ -73,10 +73,13 @@ public class IndexController {
 			wr.setAttribute("auth", true, wr.SCOPE_SESSION);
 			wr.setAttribute("id", id, wr.SCOPE_SESSION);
 			
+			
 			Map msg = new HashMap<>();
 			msg.put("mode", "login");
 			msg.put("actor", one);
+			
 			socketService.sendAll(msg);
+			socketService.sendAll(one);
 			System.out.println(one);
 			//socketService.sendOne(msg, "em1004");
 			

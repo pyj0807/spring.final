@@ -24,18 +24,14 @@
 		</ul>
 		<h6
 			class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-			<span>Saved reports</span> <a
+			<span>My Page</span> <a
 				class="d-flex align-items-center text-muted" href="#"> <span
 				data-feather="plus-circle"></span>
 			</a>
 		</h6>
 		<ul class="nav flex-column mb-2">
-		<li class="nav-item"><a class="nav-link" href="#"> <span
-				data-feather="file-text"></span> Current month
-		</a></li>
-		<li class="nav-item"><a class="nav-link" href="#"> <span
-				data-feather="file-text"></span> Last quarter
-		</a></li>
+		<li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath }/change.do"> 
+		<span data-feather="file-text"></span> 비밀번호 변경</a>
 	</ul>
 	<hr/>
 	<h6
@@ -80,7 +76,17 @@
 			window.alert("다른 기기에서 접속이 되었습니다");
 			document.getElementById("alert").innerHTML += html;
 		}
-		
+		 /* 
+		 var reLoginAlertHandel = function(obj) {
+				var html = "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">";
+				html += "<strong>【중복로그인】</strong><br/>" + obj.actor.NAME+"(" + obj.actor.DNAME+"/"+ obj.actor.PNAME+")";
+				html += "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">";
+				html += "<span aria-hidden=\"true\">&times;</span>";
+				html += "</div>";
+				document.getElementById("alert").innerHTML += html;
+				
+			} 
+		  */
 	</script>
 	
 </div>
