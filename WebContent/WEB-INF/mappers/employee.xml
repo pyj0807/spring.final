@@ -18,8 +18,12 @@
 	</insert>
 	
 	<select id="loginck"  resultType="java.util.HashMap" parameterType="java.util.HashMap">
-		select * from employee where id=#{id} and pass=#{pass} 
+		select count(*) from employee where id=#{id } and pass=#{pass} 
 	</select>
 	
+	<select resultType="java.util.HashMap" id="getEmployee" parameterType="java.lang.String"> 
+		select t.*, position.pname from (select employee.*, department.dname from employee join department on employee.did = department.did ) t 
+		join position on t.pid = position.pid where id=#{id } 
+	</select>
 	
 </mapper>

@@ -19,15 +19,13 @@
 <title>그룹웨어</title>
 <body class="text-center">
 	<form class="form-signin"
-		action="${pageContext.servletContext.contextPath }/admin/employee/login.do"
+		action="${pageContext.servletContext.contextPath }/login.do"
 		method="post">
 		<h1 class="h3 mb-3 font-weight-normal">GROUP WARE</h1>
-		<label for="inputEmail" class="sr-only">사원 아이디</label> <input
-			type="id" id="inputEmail" class="form-control"
-			placeholder="사원 아이디" required autofocus name="id"> <label
-			for="inputPassword" class="sr-only">사원 비밀번호</label> <input
-			type="password" id="inputPassword" class="form-control"
-			placeholder="사원 비밀번호" required name="pass">
+		<label for="inputEmail" class="sr-only">사원 아이디</label> 
+		<input type="id" id="inputEmail" class="form-control" placeholder="사원 아이디" required autofocus name="id"> 
+		<label for="inputPassword" class="sr-only">사원 비밀번호</label> 
+		<input type="password" id="inputPassword" class="form-control" placeholder="사원 비밀번호" required name="pass">
 		
 		<c:if test="${!empty err }">
 			<div class="alert alert-danger" role="alert">

@@ -36,5 +36,9 @@ public class EmployeeDao {
 		return template.selectOne("department.loginck", map);
 	}
 	
+	public Map getEmployee(String id) {
+		return template.selectOne("department.getEmployee", id);
+	}
+	
 	
 }

@@ -2,11 +2,21 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 	<context:component-scan base-package="app" />
-
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>
+		
+	<websocket:handlers>
+		<websocket:mapping handler="alertController" path="/alert.do"/>
+		<websocket:handshake-interceptors>
+			<bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"></bean>
+		</websocket:handshake-interceptors>
+	</websocket:handlers>
+	
 	<bean
 		class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"
 		id="tilesViewResolver" />
@@ -49,9 +59,11 @@
 
 	
 
-	<bean class="org.mybatis.spring.SqlSessionTemplate"
-		id="sqlTemplate">
-		<constructor-arg name="sqlSessionFactory"
-			ref="sqlSessionFactory" />
+	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
+	
+	
+	
+	
 </beans>
