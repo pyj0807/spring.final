@@ -80,7 +80,8 @@ public class IndexController {
 			
 			socketService.sendAll(msg);
 			socketService.sendAll(one);
-			System.out.println(one);
+			System.out.println("one : " +one);
+			System.out.println("msg : " +msg);
 			//socketService.sendOne(msg, "em1004");
 			
 			return "redirect:/index.do";
