@@ -22,7 +22,11 @@ public class SocketService {
 	public SocketService() {
 		list = new ArrayList<>();
 	}
-
+	
+	public List<WebSocketSession> allList(){
+		return list;
+	}
+	
 	public int size() {
 		return list.size();
 	}

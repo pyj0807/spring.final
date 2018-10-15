@@ -15,4 +15,6 @@ public class ChangeDao {
 	public int setPass(Map map) {
 		return template.update("department.setPass",map);
 	}
+	
+	
 }

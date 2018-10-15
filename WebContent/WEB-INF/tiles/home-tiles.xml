@@ -8,10 +8,16 @@
 		<put-attribute name="center" value="/WEB-INF/views/home/home.jsp" />
 	</definition>
 	
-	<definition template="/WEB-INF/tiles/home-template.jsp" name="change.home">
+	<definition template="/WEB-INF/tiles/home-template.jsp" name="guest.change">
 		<put-attribute name="nav" value="/WEB-INF/views/home/nav.jsp" />
 		<put-attribute name="left" value="/WEB-INF/views/home/side.jsp" />
 		<put-attribute name="center" value="/WEB-INF/views/change/change.jsp" />
+	</definition>
+	
+	<definition template="/WEB-INF/tiles/home-template.jsp" name="guest.chat">
+		<put-attribute name="nav" value="/WEB-INF/views/home/nav.jsp" />
+		<put-attribute name="left" value="/WEB-INF/views/home/side.jsp" />
+		<put-attribute name="center" value="/WEB-INF/views/chat/room.jsp" />
 	</definition>
 
 </tiles-definitions>

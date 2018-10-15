@@ -72,7 +72,7 @@ public class IndexController {
 			Map one = edao.getEmployee(id);
 			wr.setAttribute("auth", true, wr.SCOPE_SESSION);
 			wr.setAttribute("id", id, wr.SCOPE_SESSION);
-			
+			wr.setAttribute("user", one, WebRequest.SCOPE_SESSION);
 			
 			Map msg = new HashMap<>();
 			msg.put("mode", "login");
@@ -127,12 +127,5 @@ public class IndexController {
 		hs.invalidate();
 		return "redirect:/index.do";
 	}
-	/*
-	@RequestMapping("logout.do")
-	public String logoutHandle(WebRequest wr) {
-	wr.removeAttribute("auth", wr.SCOPE_SESSION);
-	wr.removeAttribute("id", wr.SCOPE_SESSION);
-	return "redirect:/index.do";
-	}
-	*/
+
 }
