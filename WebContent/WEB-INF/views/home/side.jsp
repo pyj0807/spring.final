@@ -81,6 +81,16 @@
 				document.getElementById("alert").id="";
 			} 
 		  
+		 var checkMessage = function(obj) {
+				var html = "<div class=\"alert alert-warning\" role=\"alert\">";
+				html += "<strong>【메세지】</strong><br/>메세지가 왔습니다.";
+				html += "</div>";
+				document.getElementById("alert").innerHTML += html;
+				document.getElementById("alert").id="";
+			}
+		 
+		 
+		 
 	</script>
 	
 </div>

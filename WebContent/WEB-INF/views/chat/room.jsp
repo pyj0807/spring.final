@@ -37,14 +37,15 @@
 		case "public":
 			publichHandle(obj);
 			break;
+			
 		}
 	}
 	
 	var publichHandle = function(obj){
 		var txt = obj.text;
 		var html = "<div class=\"alert alert-secondary\" role=\"alert\" style=\"padding:3px; margin-bottom:3px;\">";
-		html += obj.talker;
-		html += "▶";
+		html += obj.name +"("+ obj.position +")" ;
+		html += "<br/>";
 		html += obj.text;
 		html +="</div>";
 		document.getElementById("chatView").innerHTML += html;
@@ -57,14 +58,13 @@
 		var msg = {
 				"mode":"public",
 				"text":this.value,
-				"이름" : "${sessionScope.user.NAME }",
-				"직책" : "${sessionScope.user.DNAME } / ${sessionScope.user.PNAME}"
+				"name" : "${sessionScope.user.NAME }",
+				"position" : "${sessionScope.user.DNAME } / ${sessionScope.user.PNAME}"
 			
 				
 		};
 		chatws.send(JSON.stringify(msg));
 		this.value="";
-		
 	}
 	
 </script>
