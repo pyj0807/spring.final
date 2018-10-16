@@ -40,16 +40,26 @@ public class ChatSocketController extends TextWebSocketHandler {
 		String got = message.getPayload();
 		System.out.println("got :" + got);
 		Map gmap = gson.fromJson(got, Map.class);
-		gmap.put("id", session.getAttributes().get("id"));
-		
+		gmap.put("user", session.getAttributes().get("user"));
+		TextMessage tmt = new TextMessage(gson.toJson(gmap));
 		for (int i = 0; i < sockets.size(); i++) {
 			try {
-				sockets.get(i).sendMessage(message);
+				
+				sockets.get(i).sendMessage(tmt);
 				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
+		List<String> current = new ArrayList<>();
+		for (int i = 0; i < sockets.size(); i++) {
+			WebSocketSession ws = sockets.get(i);
+			String userId = (String) ws.getAttributes().get("userId");
+			current.add(userId);
+		}
+		
+		String txt = "{\"mode\":\"newtalk\"}";
+		service.sendExcludeGroup(txt, current);
 	}
 	
 	

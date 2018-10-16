@@ -3,7 +3,7 @@
 <nav class="col-md-2 d-none d-md-block bg-light sidebar">
 	<div class="sidebar-sticky">
 		<ul class="nav flex-column">
-			<li class="nav-item"><a class="nav-link active" href="#"> <span
+			<li class="nav-item"><a class="nav-link active" href="${pageContext.servletContext.contextPath }/index.do"> <span
 					data-feather="home"></span> Dashboard <span class="sr-only">(current)</span>
 			</a></li>
 			<li class="nav-item"><a class="nav-link" href="#"> <span
@@ -55,6 +55,8 @@
 			case "newtalk" :
 				newtalkAlertHandel(obj);
 				break;	
+			case "grouptalk" :
+				grouptalkAlertHandel(obj);
 			}
 		};
 		
@@ -75,12 +77,25 @@
 		}
 		 */
 		 
-		 var newtalkAlertHandel = function(obj) {
-				var html = "<div class=\"alert alert-warning\" role=\"alert\">";
-				html += "<strong>【채팅방】</strong><br/>새 메시지가 왔습니다.";
+		 var grouptalkAlertHandel(obj) = function(obj) {
+			 var html = "<div class=\"alert alert-info alert-dismissible fade show px-3 mt-4 mb-1\" role=\"alert\">";
+				html += "<strong>"+ obj.user.DNAME +"【채팅방】</strong><br/>새로운 채팅이 있습니다.";
+				html += "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">";
+				html += "<span aria-hidden=\"true\">&times;</span>";
+				html += "</button>";
 				html += "</div>";
 				document.getElementById("alert").innerHTML += html;
-				document.getElementById("alert").id="";
+			}
+		 
+		 
+		 var newtalkAlertHandel = function(obj) {
+			 var html = "<div class=\"alert alert-info alert-dismissible fade show px-3 mt-4 mb-1\" role=\"alert\">";
+				html += "<strong>【채팅방】</strong><br/>새로운 채팅이 있습니다.";
+				html += "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">";
+				html += "<span aria-hidden=\"true\">&times;</span>";
+				html += "</button>";
+				html += "</div>";
+				document.getElementById("alert").innerHTML += html;
 			}
 		 
 		 var reLoginAlertHandel = function(obj) {
@@ -90,6 +105,8 @@
 				document.getElementById("alert").innerHTML += html;
 				document.getElementById("alert").id="";
 			}
+		 
+		 
 		 
 	</script>
 	

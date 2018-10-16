@@ -2,6 +2,7 @@ package app.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -14,7 +15,7 @@ import com.google.gson.Gson;
 
 @Service
 public class SocketService {
-	List<WebSocketSession> list;
+	public List<WebSocketSession> list;
 
 	@Autowired
 	Gson gson;
@@ -23,7 +24,7 @@ public class SocketService {
 		list = new ArrayList<>();
 	}
 	
-	public List<WebSocketSession> allList(){
+	public List<WebSocketSession> allList() {
 		return list;
 	}
 	
@@ -52,17 +53,16 @@ public class SocketService {
 	public void sendAll(Map map) {
 		sendAll(gson.toJson(map));
 	}
+	
 	public void sendOne(String txt, String target) {
 		TextMessage msg = new TextMessage(txt);
 		for (int i = 0; i < list.size(); i++) {
 			try {
-				WebSocketSession ws = list.get(i);
-				String id = (String)ws.getAttributes().get("id");
-				// ws.getAttributes() == HttpSession의 attribue들
-				if( id.equals(target)) {
+				WebSocketSession ws =list.get(i);
+				String userId = (String) ws.getAttributes().get("id");
+				// ws.getAttribute()  == HttpSession의 attribute 들
+				if(userId.equals(target)) {
 					ws.sendMessage(msg);
-					
-					
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -74,12 +74,35 @@ public class SocketService {
 		sendOne(gson.toJson(data), target);
 	}
 	
+	public void sendIncludeGroup(String txt, String... targets) {
+		sendIncludeGroup(txt, Arrays.asList(targets));
+	}
+	
+	public void sendIncludeGroup(String txt,  List<String> group) {
+		TextMessage msg = new TextMessage(txt);
+		for (int i = 0; i < list.size(); i++) {
+			try {
+				WebSocketSession ws =list.get(i);
+				String userId = (String) ws.getAttributes().get("id");
+				if(group.contains(userId)) {
+					ws.sendMessage(msg);
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void sendExcludeGroup(String txt, String... targets) {
+		sendExcludeGroup(txt, Arrays.asList(targets));
+	}
+	
 	public void sendExcludeGroup(String txt, List<String> group) {
 		TextMessage msg = new TextMessage(txt);
 		for (int i = 0; i < list.size(); i++) {
 			try {
 				WebSocketSession ws =list.get(i);
-				String userId = (String) ws.getAttributes().get("userId");
+				String userId = (String) ws.getAttributes().get("id");
 				// ws.getAttribute()  == HttpSession의 attribute 들
 				if(!group.contains(userId)) {
 					ws.sendMessage(msg);
@@ -92,3 +115,4 @@ public class SocketService {
 
 
 }
+

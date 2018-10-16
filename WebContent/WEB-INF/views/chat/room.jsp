@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<hr/>
 <div
 	class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 	<h1 class="h2">GROUPWARE</h1>
@@ -11,7 +12,7 @@
 				${sessionScope.user.PNAME }</button>
 		</div>
 		<button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-			<span data-feather="calendar"></span> ${sessionScope.userId }
+			<span data-feather="calendar"></span> ${sessionScope.id }
 		</button>
 	</div>
 </div>
@@ -44,7 +45,7 @@
 	var publichHandle = function(obj){
 		var txt = obj.text;
 		var html = "<div class=\"alert alert-secondary\" role=\"alert\" style=\"padding:3px; margin-bottom:3px;\">";
-		html += obj.name +"("+"<small>"+ obj.position +"</small>" +")" ;
+		html += obj.user.NAME +"("+"<small>"+ obj.user.DNAME/obj.user.PNAME +"</small>" +")" ;
 		html += "<br/>";
 		html += obj.text;
 		html +="</div>";
@@ -58,8 +59,6 @@
 		var msg = {
 				"mode":"public",
 				"text":this.value,
-				"name" : "${sessionScope.user.NAME }",
-				"position" : "${sessionScope.user.DNAME } / ${sessionScope.user.PNAME}"
 			
 				
 		};
