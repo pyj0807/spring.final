@@ -44,7 +44,7 @@
 	var publichHandle = function(obj){
 		var txt = obj.text;
 		var html = "<div class=\"alert alert-secondary\" role=\"alert\" style=\"padding:3px; margin-bottom:3px;\">";
-		html += obj.name +"("+ obj.position +")" ;
+		html += obj.name +"("+"<small>"+ obj.position +"</small>" +")" ;
 		html += "<br/>";
 		html += obj.text;
 		html +="</div>";

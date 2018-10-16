@@ -72,7 +72,7 @@ public class IndexController {
 			Map one = edao.getEmployee(id);
 			wr.setAttribute("auth", true, wr.SCOPE_SESSION);
 			wr.setAttribute("id", id, wr.SCOPE_SESSION);
-			wr.setAttribute("user", one, WebRequest.SCOPE_SESSION);
+			wr.setAttribute("user", one, wr.SCOPE_SESSION);
 			
 			Map msg = new HashMap<>();
 			msg.put("mode", "login");

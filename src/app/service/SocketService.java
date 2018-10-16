@@ -74,13 +74,21 @@ public class SocketService {
 		sendOne(gson.toJson(data), target);
 	}
 	
-	public void sendSome(String txt, String... target) {
+	public void sendExcludeGroup(String txt, List<String> group) {
 		TextMessage msg = new TextMessage(txt);
 		for (int i = 0; i < list.size(); i++) {
-			
+			try {
+				WebSocketSession ws =list.get(i);
+				String userId = (String) ws.getAttributes().get("userId");
+				// ws.getAttribute()  == HttpSession의 attribute 들
+				if(!group.contains(userId)) {
+					ws.sendMessage(msg);
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
-	
-	
+
 
 }

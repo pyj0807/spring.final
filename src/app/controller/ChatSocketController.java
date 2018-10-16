@@ -39,9 +39,11 @@ public class ChatSocketController extends TextWebSocketHandler {
 		
 		String got = message.getPayload();
 		System.out.println("got :" + got);
+		Map gmap = gson.fromJson(got, Map.class);
+		gmap.put("id", session.getAttributes().get("id"));
+		
 		for (int i = 0; i < sockets.size(); i++) {
 			try {
-				sockets.get(i).getAttributes().get(got);
 				sockets.get(i).sendMessage(message);
 				
 			} catch (Exception e) {
