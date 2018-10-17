@@ -45,7 +45,7 @@
 	var publichHandle = function(obj){
 		var txt = obj.text;
 		var html = "<div class=\"alert alert-secondary\" role=\"alert\" style=\"padding:3px; margin-bottom:3px;\">";
-		html += obj.user.NAME +"("+"<small>"+ obj.user.DNAME/obj.user.PNAME +"</small>" +")" ;
+		html += obj.user.NAME +"("+"<small>"+ obj.user.DNAME+"/"+ obj.user.PNAME +"</small>" +")" ;
 		html += "<br/>";
 		html += obj.text;
 		html +="</div>";
@@ -59,6 +59,7 @@
 		var msg = {
 				"mode":"public",
 				"text":this.value,
+				
 			
 				
 		};

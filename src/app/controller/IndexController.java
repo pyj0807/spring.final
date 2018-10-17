@@ -120,6 +120,7 @@ public class IndexController {
 		return "redirect:/";		// redirect:/index.do	
 	}
 	*/
+	
 	@RequestMapping("logout.do")
 	public String logoutHandle(@SessionAttribute String id,  HttpSession hs) {
 		

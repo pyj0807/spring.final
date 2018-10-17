@@ -54,7 +54,7 @@ public class ChatSocketController extends TextWebSocketHandler {
 		List<String> current = new ArrayList<>();
 		for (int i = 0; i < sockets.size(); i++) {
 			WebSocketSession ws = sockets.get(i);
-			String userId = (String) ws.getAttributes().get("userId");
+			String userId = (String) ws.getAttributes().get("id");
 			current.add(userId);
 		}
 		

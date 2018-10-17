@@ -54,9 +54,6 @@
 				break;
 			case "newtalk" :
 				newtalkAlertHandel(obj);
-				break;	
-			case "grouptalk" :
-				grouptalkAlertHandel(obj);
 			}
 		};
 		
@@ -77,15 +74,7 @@
 		}
 		 */
 		 
-		 var grouptalkAlertHandel(obj) = function(obj) {
-			 var html = "<div class=\"alert alert-info alert-dismissible fade show px-3 mt-4 mb-1\" role=\"alert\">";
-				html += "<strong>"+ obj.user.DNAME +"【채팅방】</strong><br/>새로운 채팅이 있습니다.";
-				html += "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">";
-				html += "<span aria-hidden=\"true\">&times;</span>";
-				html += "</button>";
-				html += "</div>";
-				document.getElementById("alert").innerHTML += html;
-			}
+		
 		 
 		 
 		 var newtalkAlertHandel = function(obj) {
