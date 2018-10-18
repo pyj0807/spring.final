@@ -40,5 +40,15 @@ public class EmployeeDao {
 		return template.selectOne("department.getEmployee", id);
 	}
 	
+	//메세지 보내기
+	public List<Map> setMessage() {
+		return template.selectList("department.setMessage");
+	}
+	
+	//메세지 가져오기
+	
+	public List<Map> getMessage(Map map) {
+		return template.selectList("department.getMessage");
+	}
 	
 }

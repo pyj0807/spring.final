@@ -29,5 +29,15 @@
 	<update id="setPass" parameterType="java.util.HashMap">
 		update employee set pass=#{pass} where id=#{id}
 	</update>	
+	
+	<insert id="setMessage" parameterType="java.util.HashMap">
+		insert into messagebox values(#{sender},#{receiver},#{content},#{ckeck}, sysdate )
+	</insert>
+	
+	<select id="getMessage" resultType="java.util.HashMap" >
+		select * from messagebox order by leftdate desc  
+	</select>
+	
+	
 		
 </mapper>

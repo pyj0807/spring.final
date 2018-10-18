@@ -24,8 +24,10 @@
 		<ul class="nav flex-column mb-2">
 		<li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath }/change.do"> 
 		<span data-feather="file-text"></span> 비밀번호 변경</a>
+		<li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath }/chat/message.do"> 
+		<span data-feather="file-text"></span> 쪽지함</a>	
 		<li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath }/chat/room.do"> 
-		<span data-feather="file-text"></span> 쪽지함</a>		
+		<span data-feather="file-text"></span> 채팅방</a>		
 	</ul>
 	<hr/>
 	<h6
@@ -55,8 +57,6 @@
 			case "newtalk" :
 				newtalkAlertHandel(obj);
 				break;
-			case "grouptalk" :
-				groupAlertHandle(obj);
 			}
 		};
 		
@@ -76,17 +76,7 @@
 			document.getElementById("alert").innerHTML += html;
 		}
 		 */
-		 
-		 var groupAlertHandle = function(obj) {
-				var html = "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">";
-				html += "<strong>"+obj.actor.PNAME+"</strong><br/> 방의 새로운 채팅이 있습니다";
-				html += "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">";
-				html += "<span aria-hidden=\"true\">&times;</span>";
-				html += "</div>";
-				document.getElementById("alert").innerHTML += html;
-				
-			}
-		 
+		
 		 
 		var newtalkAlertHandel = function(obj) {
 			 var html = "<div class=\"alert alert-info alert-dismissible fade show px-3 mt-4 mb-1\" role=\"alert\">";
