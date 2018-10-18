@@ -54,6 +54,9 @@
 				break;
 			case "newtalk" :
 				newtalkAlertHandel(obj);
+				break;
+			case "grouptalk" :
+				groupAlertHandle(obj);
 			}
 		};
 		
@@ -74,10 +77,18 @@
 		}
 		 */
 		 
-		
+		 var groupAlertHandle = function(obj) {
+				var html = "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">";
+				html += "<strong>"+obj.actor.PNAME+"</strong><br/> 방의 새로운 채팅이 있습니다";
+				html += "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">";
+				html += "<span aria-hidden=\"true\">&times;</span>";
+				html += "</div>";
+				document.getElementById("alert").innerHTML += html;
+				
+			}
 		 
 		 
-		 var newtalkAlertHandel = function(obj) {
+		var newtalkAlertHandel = function(obj) {
 			 var html = "<div class=\"alert alert-info alert-dismissible fade show px-3 mt-4 mb-1\" role=\"alert\">";
 				html += "<strong>【채팅방】</strong><br/>새로운 채팅이 있습니다.";
 				html += "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">";
@@ -87,7 +98,7 @@
 				document.getElementById("alert").innerHTML += html;
 			}
 		 
-		 var reLoginAlertHandel = function(obj) {
+		var reLoginAlertHandel = function(obj) {
 				var html = "<div class=\"alert alert-warning\" role=\"alert\">";
 				html += "<strong>【중복로그인】</strong><br/>다른 기기에서 로그인되었습니다.<br/>재로그인 해주세요(새로고침)";
 				html += "</div>";
