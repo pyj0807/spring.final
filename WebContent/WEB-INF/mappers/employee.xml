@@ -31,13 +31,16 @@
 	</update>	
 	
 	<insert id="setMessage" parameterType="java.util.HashMap">
-		insert into messagebox values(#{sender},#{receiver},#{content},#{ckeck}, sysdate )
+		insert into messagebox values(#{sender},#{receiver},#{content},sysdate,0,message_seq.nextval)
 	</insert>
 	
-	<select id="getMessage" resultType="java.util.HashMap" >
-		select * from messagebox order by leftdate desc  
+	<select id="getMessage" resultType="java.util.HashMap" parameterType="java.lang.String" >
+		select * from messagebox where receiver=#{reciver} order by senddate desc
 	</select>
 	
+	<update id="upcho" parameterType="java.lang.Integer">
+		update messagebox set cho = 1 where no=#{no}
+	</update>
 	
 		
 </mapper>

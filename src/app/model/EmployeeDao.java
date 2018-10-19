@@ -41,14 +41,17 @@ public class EmployeeDao {
 	}
 	
 	//메세지 보내기
-	public List<Map> setMessage() {
-		return template.selectList("department.setMessage");
+	public int setMessage(Map map) {
+		return template.insert("department.setMessage", map);
 	}
 	
 	//메세지 가져오기
+	public List<Map> getMessage(String receiver) {
+		return template.selectList("department.getMessage", receiver);
+	}
 	
-	public List<Map> getMessage(Map map) {
-		return template.selectList("department.getMessage");
+	public int upcho(int no) {
+		return template.update("department.upcho", no);
 	}
 	
 }

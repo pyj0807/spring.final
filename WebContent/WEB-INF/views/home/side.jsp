@@ -24,8 +24,10 @@
 		<ul class="nav flex-column mb-2">
 		<li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath }/change.do"> 
 		<span data-feather="file-text"></span> 비밀번호 변경</a>
-		<li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath }/chat/message.do"> 
+		<li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath }/message/box.do"> 
 		<span data-feather="file-text"></span> 쪽지함</a>	
+		<li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath }/message/send.do"> 
+		<span data-feather="file-text"></span> 쪽지보내기</a>	
 		<li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath }/chat/room.do"> 
 		<span data-feather="file-text"></span> 채팅방</a>		
 	</ul>
